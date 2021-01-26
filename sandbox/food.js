@@ -22,6 +22,8 @@ $(document).ready(function() {//dont forget this cause it will ruin your day
     .then(function(response) {
     // log it to see whats in it
       console.log(response);
+      $("#dispData").text(response.meals[0].strMeal);
+      $("#showMe").attr("src", response.meals[0].strMealThumb)
     });
   }
 })
