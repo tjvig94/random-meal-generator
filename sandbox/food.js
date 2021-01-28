@@ -9,7 +9,7 @@ $(document).ready(function() {//dont forget this cause it will ruin your day
   function getFood(){
     // get the search text do some logic on this once it works and you have time
     var sIn = $("#country").val();
-    console.log(sIn);
+    //console.log(sIn);
     //put the api link here
     var queryURL = "https://www.themealdb.com/api/json/v1/1/filter.php?a=" + sIn //https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata"//"https://www.thecocktaildb.com/api/json/v1/1/random.php"; //"https://www.themealdb.com/api/json/v1/1/categories.php"; //"https://www.themealdb.com/api/json/v1/1/filter.php?a=British";
     
@@ -21,12 +21,34 @@ $(document).ready(function() {//dont forget this cause it will ruin your day
     
     .then(function(response) {
     // log it to see whats in it
-      console.log(response);
+     // console.log(response);
       $("#dispData").text(response.meals[0].strMeal);
-      $("#showMe").attr("src", response.meals[0].strMealThumb)
+      $("#showMe").attr("src", response.meals[0].strMealThumb);
+      $("#ingreed").text(response.meals[0])
+      getIngredients();
+    });
+    
+  }
+
+  function getIngredients(){
+    // get the search text do some logic on this once it works and you have time
+    var x = $("#dispData").text();
+    //put the api link here
+    var queryURL1 = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + x //https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata"//"https://www.thecocktaildb.com/api/json/v1/1/random.php"; //"https://www.themealdb.com/api/json/v1/1/categories.php"; //"https://www.themealdb.com/api/json/v1/1/filter.php?a=British";
+    //get the url info
+    $.ajax({
+      url: queryURL1,
+      method: "GET"
+  })
+    
+    .then(function(response) {
+    // log it to see whats in it
+      console.log(response);
+      $("#ingreed").text(response.meals[0].strInstructions);
     });
   }
-})
+
+});
 
 
 
