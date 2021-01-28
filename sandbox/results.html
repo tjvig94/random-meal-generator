@@ -15,29 +15,45 @@
 <body>
 
     <main>
-        <div class="row">
-            <div class="col s12">
-                <div class="card red lighten-2">
-                    <div class="card-content white-text">
-                        <span class="card-title">Results</span>
-                        <span><a class="waves-effect waves-light btn">Favorite</a></span>
-                        <h1 class="meal-name">Spaghetti</h1>
-                        <h3>Ingredients</h3>
-                        <ul class="ingredients">
-                            <li>Test list</li>
-                        </ul>
-                        <img class="meal-img" src="" alt="">
-                        <h3>Directions</h3>
-                        <ol class="directions">
-                            <li>Test list</li>
-                        </ol>
-                        <img class="map-img" src="" alt="">
-                        <a class="waves-effect waves-light btn-large retry-btn">Give me something else!</a>
-                        <a class="waves-effect waves-light btn-large drink-btn">Give me a drink, too!</a>
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <div class="card red lighten-2">
+                        <div class="card-content white-text">                           
+                            <h1 class="meal-name">Spaghetti <span><a class="waves-effect waves-light btn">Favorite</a></span></h1>
+                            <div class="row">
+                                <div class="col s12 m6">
+                                    <h3>Ingredients</h3>
+                                    <ul class="ingredients browser-default">
+                                        <li>Test list</li>
+                                    </ul>
+                                </div>
+                                <div class="col s12 m6">
+                                    <img class="meal-img" src="https://via.placeholder.com/300" alt="">
+                                </div>    
+                            </div>
+                            <div class="row">
+                                <div class="col s12 m6">
+                                    <img class="map-img" src="https://via.placeholder.com/300" alt="">
+                                </div>
+                                <div class="col s12 m6">
+                                    <h3>Directions</h3>
+                                    <ol class="directions browser-default">
+                                        <li>Test list</li>
+                                    </ol>
+                                </div>
+                            </div>                            
+                            <div class="row center-align">
+                                <a class="waves-effect waves-light btn-large retry-btn">Give me something else!</a>
+                            </div>
+                            <div class="row center-align">
+                                <a class="waves-effect waves-light btn-large drink-btn">Give me a drink, too!</a>
+                            </div>    
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div>    
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
