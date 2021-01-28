@@ -5,44 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="food.js"></script>
+  <link rel="stylesheet" href="./assets/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
   <title>Document</title>
 </head>
-<body>
-    
-  <label for="country">Choose a country:</label>
-  <select id="country" name="country">
-    <option value="British">British</option>
-    <option value="American">American</option>
-    <option value="French">French</option>
-    <option value="Canadian">Canadian</option>
-    <option value="Jamacian">Jamacian</option>
-    <option value="Chinese">Chinese</option>
-    <option value="Dutch">Dutch</option>
-    <option value="Egyptian">Egyptian</option>
-    <option value="Greek">Greek</option>
-    <option value="Indian">Indian</option>
-    <option value="Irish">Irish</option>
-    <option value="Italian">Italian</option>
-    <option value="Japanese">Japanese</option>
-    <option value="Kenyan">Kenyan</option>
-    <option value="Malaysian">Malaysian</option>
-    <option value="Mexican">Mexican</option>
-    <option value="Moroccan">Moroccan</option>
-    <option value="Russian">Russian</option>
-    <option value="Spanish">Spanish</option>
-    <option value="Thai">Thai</option>
-    <option value="Saudi Arabian">Saudi Arabian</option>
-    <option value="Vietnamese">Vietnamese</option>
-    <option value="Turkish">Turkish</option>
-    <option value="Tunisian">Tunisian</option>
-    <option value="Polish">Polish</option>
-  </select>
-
-  <button id="search-button">Search</button>
+<body class="body">
+  <h1 class="indexHeader col s12">Suprise Me-al</h1>
+        <div class="row firstRow">
+          <div class="input-field col s10">
+            <select id="country" name="country">
+              <option value="" disabled selected>Choose your option</option>
+              <option value="British">British</option>
+               <option value="American">American</option>
+               <option value="French">French</option>
+               <option value="Canadian">Canadian</option>
+               <option value="Jamacian">Jamacian</option>
+               <option value="Chinese">Chinese</option>
+               <option value="Dutch">Dutch</option>
+               <option value="Egyptian">Egyptian</option>
+               <option value="Greek">Greek</option>
+               <option value="Indian">Indian</option>
+               <option value="Irish">Irish</option>
+               <option value="Italian">Italian</option>
+               <option value="Japanese">Japanese</option>
+               <option value="Kenyan">Kenyan</option>
+               <option value="Malaysian">Malaysian</option>
+               <option value="Mexican">Mexican</option>
+               <option value="Moroccan">Moroccan</option>
+               <option value="Russian">Russian</option>
+               <option value="Spanish">Spanish</option>
+               <option value="Thai">Thai</option>
+               <option value="Saudi Arabian">Saudi Arabian</option>
+               <option value="Vietnamese">Vietnamese</option>
+               <option value="Turkish">Turkish</option>
+               <option value="Tunisian">Tunisian</option>
+               <option value="Polish">Polish</option>
+            </select>
+            <label class="selectorText" for="country">Choose a Country</label>
+          </div>
+          <a class="waves-effect waves-light btn col s4" id="search-button">search</a>
+      </div>
+      <div class="row h3R">
+      <div>
+        <h3 class="col s12">-Or-</h3>
+      </div>
+    </div>
+    <div class="row rButtonRow">
+      <div class="randomButton col s8">
+      <a class="waves-effect waves-light btn-large">Random</a>
+    </div>
+  </div>
+   
 
   <div id="dispData"></div>
   <div id="ingreed"></div>
   <img id="showMe">
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>

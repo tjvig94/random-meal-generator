@@ -1,36 +1,36 @@
-$(document).ready(function() {//dont forget this cause it will ruin your day
+$(document).ready(function () {//dont forget this cause it will ruin your day
 
-  $("#search-button").on("click", function(Event){
-  
+  $("#search-button").on("click", function (Event) {
+
     getFood();
 
   });
 
-  function getFood(){
+  function getFood() {
     // get the search text do some logic on this once it works and you have time
     var sIn = $("#country").val();
     //console.log(sIn);
     //put the api link here
     var queryURL = "https://www.themealdb.com/api/json/v1/1/filter.php?a=" + sIn //https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata"//"https://www.thecocktaildb.com/api/json/v1/1/random.php"; //"https://www.themealdb.com/api/json/v1/1/categories.php"; //"https://www.themealdb.com/api/json/v1/1/filter.php?a=British";
-    
+
     //get the url info
     $.ajax({
       url: queryURL,
       method: "GET"
-  })
-    
-    .then(function(response) {
-    // log it to see whats in it
-     // console.log(response);
-      $("#dispData").text(response.meals[0].strMeal);
-      $("#showMe").attr("src", response.meals[0].strMealThumb);
-      $("#ingreed").text(response.meals[0])
-      getIngredients();
-    });
-    
+    })
+
+      .then(function (response) {
+        // log it to see whats in it
+        // console.log(response);
+        $("#dispData").text(response.meals[0].strMeal);
+        $("#showMe").attr("src", response.meals[0].strMealThumb);
+        $("#ingreed").text(response.meals[0])
+        getIngredients();
+      });
+
   }
 
-  function getIngredients(){
+  function getIngredients() {
     // get the search text do some logic on this once it works and you have time
     var x = $("#dispData").text();
     //put the api link here
@@ -39,22 +39,20 @@ $(document).ready(function() {//dont forget this cause it will ruin your day
     $.ajax({
       url: queryURL1,
       method: "GET"
-  })
-    
-    .then(function(response) {
-    // log it to see whats in it
-      console.log(response);
-      $("#ingreed").text(response.meals[0].strInstructions);
-    });
+    })
+
+      .then(function (response) {
+        // log it to see whats in it
+        console.log(response);
+        $("#ingreed").text(response.meals[0].strInstructions);
+      });
   }
 
 });
 
-
-
-
-
-
+$(document).ready(function () {
+  $('select').formSelect();
+});
 
 
 
@@ -89,7 +87,7 @@ $(document).ready(function() {//dont forget this cause it will ruin your day
 
 //     tagit.attr("class", "new-item");
 //     tagit.addClass("list-group-item");
-    
+
 //     var t = $("#search-input").val();
 
 //     tagit.text(t);
@@ -131,7 +129,7 @@ $(document).ready(function() {//dont forget this cause it will ruin your day
 //       $("#temp").text("Temp: " + response.list[0].main.temp +"F");
 //       $("#humid").text("Humidity: " + response.list[0].main.humidity + "%");
 //       $("#wind").text("Wind Speed: " + response.list[0].wind.speed + "MPH");
-      
+
 //       const lati = response.city.coord.lat;
 //       const long = response.city.coord.lon;
 //       //now go get UV Index from the one call api using the vars above
@@ -147,15 +145,15 @@ $(document).ready(function() {//dont forget this cause it will ruin your day
 //          console.log(day);
 //          previousDay = day;
 //        }
-       
+
 
 //      });
-       
+
 //      getUVI(lati, long);
-     
+
 //     });
 //   }
-  
+
 //   function getUVI(x,y){
 //     $.ajax({
 //       url:"https://api.openweathermap.org/data/2.5/onecall?lat=" + x + "&lon=" + y + "&exclude=hourly,daily&appid=ca623f88e9a094baf03a0e31d283744f",
