@@ -1,16 +1,10 @@
 $(document).ready(function () {//dont forget this cause it will ruin your day
 
-
-  $("#search-button").on("click", function (Event) {
-
-    getFood();
-
-  });
-
-
   function getFood() {
     // get the search text do some logic on this once it works and you have time
-    var sIn = $("#country").val();
+    //var sIn = $("#country").val();
+   // console.log(window.localStorage.getItem("Country"));
+    var sIn = window.localStorage.getItem("Country");
     //console.log(sIn);
     //put the api link here
     var queryURL = "https://www.themealdb.com/api/json/v1/1/filter.php?a=" + sIn //https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata"//"https://www.thecocktaildb.com/api/json/v1/1/random.php"; //"https://www.themealdb.com/api/json/v1/1/categories.php"; //"https://www.themealdb.com/api/json/v1/1/filter.php?a=British";
@@ -23,10 +17,20 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
 
       .then(function (response) {
         // log it to see whats in it
-        // console.log(response);
-        $("#dispData").text(response.meals[0].strMeal);
-        $("#showMe").attr("src", response.meals[0].strMealThumb);
-        $("#ingreed").text(response.meals[0])
+         console.log(response);
+
+        //$("#dispData").text(response.meals[0].strMeal);
+        $(".meal-name").text(response.meals[0].strMeal);
+        window.localStorage.setItem("Meal" ,response.meals[0].strMeal);
+        //$("#showMe").attr("src", response.meals[0].strMealThumb);
+        $(".meal-img").attr("src", response.meals[0].strMealThumb);
+        window.localStorage.setItem("Pic" ,response.meals[0].strMealThumb);
+        $(".ingredients").text(response.meals[0]);
+        window.localStorage.setItem("Ingred" ,response.meals[0]);
+
+        // $("#dispData").text(response.meals[0].strMeal);
+        // $("#showMe").attr("src", response.meals[0].strMealThumb);
+        // $("#ingreed").text(response.meals[0])
         getIngredients();
       });
 
@@ -34,7 +38,7 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
 
   function getIngredients() {
     // get the search text do some logic on this once it works and you have time
-    var x = $("#dispData").text();
+    var x = $(".meal-name").text();
     //put the api link here
     var queryURL1 = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + x //https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata"//"https://www.thecocktaildb.com/api/json/v1/1/random.php"; //"https://www.themealdb.com/api/json/v1/1/categories.php"; //"https://www.themealdb.com/api/json/v1/1/filter.php?a=British";
     //get the url info
@@ -46,23 +50,62 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
       .then(function (response) {
         // log it to see whats in it
         console.log(response);
-        $("#ingreed").text(response.meals[0].strInstructions);
+        $(".ingredients").text(response.meals[0].strInstructions);
       });
   }
 
-});
-
-$(document).ready(function () {
-  $('select').formSelect();
+  getFood();
 
 });
 
 
+// function drink() {
+
+//   fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+//       .then(response => response.json())
+//       .then(response => {
+//           const drink = response.drinks[0]
+//           const drink_photo_url = drink.strDrinkThumb
+//           const drink_name = drink.strDrink
+//           let drink_recipe = ''
+//           for (let i = 1; i <= 15; i++) {
+//               if (drink[`strIngredient${i}`] === null) {
+//                   break
+//               }
+//               drink_recipe += drink[`strIngredient${i}`] + ' ' + drink[`strMeasure${i}`]
+//           }
+//           document.querySelector('.card-img-top').src = drink_photo_url
+//           document.querySelector('.card-title').innerText = drink_name
+//           document.querySelector('.card-text').innerText = drink_recipe
+//       })
+// }
+// drink()
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+// $("#search-button").on("click", function (Event) {
+
+//   getFood();
+
+// });
+
+
+// $(document).ready(function () {
+//   $('select').formSelect();
+
+// });
 
 // $(document).ready(function() {//dont forget this cause it will ruin your day
 
