@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS Reset -->
-    <link rel="stylesheet" href="reset.css">
+    <!-- <link rel="stylesheet" href="reset.css"> -->
     <!-- Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Custom CSS -->
@@ -22,20 +22,29 @@
                 <div class="col s12">
                     <div class="card cyan darken-3">
                         <div class="card-content white-text">  
-                            <div class="section">                                                  
-                                <h1 class="meal-name"></h1><span><a class="waves-effect waves-dark cyan lighten-5 btn">Favorite</a></span>
-                            </div>  
+                            <div class="section">
+                                <div class="row">
+                                    <div class="col s12 l6">
+                                        <h1 class="meal-name"></h1>
+                                    </div>
+                                    <div class="col s12 l6 right-align">
+                                        <span><a class="waves-effect waves-dark cyan lighten-5 btn">Favorite</a></span>
+                                    </div>
+                                </div>                                                  
+                                
+                            </div> 
+
                             <div class="divider"></div>
 
                             <div class="section">
                                 <div class="row">
-                                    <div class="col s12 m6">
+                                    <div class="col s12 l6">
                                         <h3>Ingredients</h3>
                                         <ul class="ingredients section">
                                             <li class="ingredients-item"></li>
                                         </ul>
                                     </div>
-                                    <div class="col s12 m6">
+                                    <div class="col s12 l6 center-align">
                                         <img class="meal-img responsive-img z-depth-2" src="https://via.placeholder.com/300" alt="">
                                     </div>
                                 </div>    
@@ -43,13 +52,13 @@
 
                             <div class="section">
                                 <div class="row">
-                                    <div class="col s12 m6">
+                                    <div class="col s12 l6">
                                         <h3>Directions</h3>
                                         <ul class="directions section">
                                             <li class="directions-item"></li>
                                         </ul>
                                     </div>
-                                    <div class="col s12 m6">
+                                    <div class="col s12 l6 center-align">
                                         <img class="map-img responsive-img z-depth-2" src="https://via.placeholder.com/300" alt="">
                                     </div>
                                 </div>
@@ -57,10 +66,10 @@
 
                             <div class="section">                           
                                 <div class="row center-align">
-                                    <a class="waves-effect waves-light cyan lighten-5 btn-large retry-btn">Give me something else!</a>
+                                    <a class="waves-effect waves-dark cyan lighten-5 btn-large retry-btn">Give me something else!</a>
                                 </div>
                                 <div class="row center-align">
-                                    <a class="waves-effect waves-light cyan lighten-5 btn-large drink-btn">Give me a drink, too!</a>
+                                    <a class="waves-effect waves-dark cyan lighten-5 btn-large drink-btn">Give me a drink, too!</a>
                                 </div> 
                             </div>
 
@@ -68,16 +77,16 @@
 
                             <div class="section drink-section">
                                 <div class="row">                                   
-                                    <h1 class="center-align drink-name">Cocktail</h1>                                   
+                                    <h1 class="center-align drink-name"></h1>                                   
                                 </div>
                                 <div class="section">
                                     <div class="row">
-                                        <div class="col">
+                                        <div class="col s12 l3 center-align">
                                             <img class="drink-img z-depth-2" src="https://via.placeholder.com/300" alt="">
                                         </div>
-                                        <div class="col">
+                                        <div class="col s12 l9">
                                             <h3 class="no-margin results-card">Directions</h3>
-                                            <p class="drink-directions">This is a test</p>                                             
+                                            <p class="drink-directions"></p>                                             
                                         </div>
                                     </div>
                                 </div>                                 
@@ -90,8 +99,11 @@
         </div>    
     </main>
 
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="food.js"></script>
+    <script src="drink.js"></script>
 </body>
 </html>
