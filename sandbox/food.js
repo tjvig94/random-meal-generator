@@ -46,8 +46,8 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
   }
 
   function initPage(){
-    $("#country").text(window.localStorage.getItem("Meal"));
-    
+    //$("#country").text(window.localStorage.getItem("Meal"));
+
   }
 
   $("#search-button").on("click", function (Event) {
@@ -56,6 +56,7 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
 
   });
 
+  $("select").formSelect();//DONT REMOVE THIS IS FOR THE DROPDOWN BOX TO WORK!!!!!
   initPage();
 
 });
