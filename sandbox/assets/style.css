@@ -1,0 +1,40 @@
+.body {
+    background-image: url(./homepagebackground.jpg);
+    background-color: rgb(20, 54, 54);
+    background-blend-mode: screen;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.indexHeader {
+    text-align: center;
+    color: whitesmoke;
+    font-family: 'lobster', cursive;
+}
+.chooseACountry {
+    padding: 10px;
+    justify-content: center;
+    line-height: 60px;
+}
+.firstRow {
+    width: 20%;
+}
+.selectText {
+    color: white;
+}
+h3 {
+    font-family: 'lobster', cursive;
+    color: whitesmoke;
+}
+.h3R {
+    text-align: center;
+    margin: 5px 5px 5px 5px;
+}
+.rButton {
+    justify-content: center;
+    align-items: center;
+    resize: both;
+    overflow: auto;
+}
+.rButtonRow {
+    width: 13%;
+}
