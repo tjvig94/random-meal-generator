@@ -1,10 +1,12 @@
 $(document).ready(function () {//dont forget this cause it will ruin your day
 
+
   $("#search-button").on("click", function (Event) {
 
     getFood();
 
   });
+
 
   function getFood() {
     // get the search text do some logic on this once it works and you have time
@@ -52,7 +54,11 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
 
 $(document).ready(function () {
   $('select').formSelect();
+
 });
+
+
+
 
 
 

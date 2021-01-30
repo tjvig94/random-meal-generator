@@ -4,20 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="food.js"></script>
   <link rel="stylesheet" href="./assets/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
   <title>Document</title>
 </head>
 <body class="body">
   <h1 class="indexHeader col s12">Suprise Me-al</h1>
-        <div class="row firstRow">
-          <div class="input-field col s10">
-            <select id="country" name="country">
-              <option value="" disabled selected>Choose your option</option>
-              <option value="British">British</option>
+        <div class="row firstRow center-align">
+          <div class="input-field col s9">
+            <select id="country"  name="country">
+               <option value="" disabled selected>Choose your option</option>
+               <option value="British">British</option>
                <option value="American">American</option>
                <option value="French">French</option>
                <option value="Canadian">Canadian</option>
@@ -43,25 +43,35 @@
                <option value="Tunisian">Tunisian</option>
                <option value="Polish">Polish</option>
             </select>
-            <label class="selectorText" for="country">Choose a Country</label>
+            <label class="selectorText" for="country">Choose a Country!</label>
           </div>
-          <a class="waves-effect waves-light btn col s4" id="search-button">search</a>
+          <a class="waves-effect cyan darken-3 btn col s4" id="search-button"><i class="fas fa-search"></i></a>
       </div>
       <div class="row h3R">
       <div>
         <h3 class="col s12">-Or-</h3>
       </div>
     </div>
-    <div class="row rButtonRow">
-      <div class="randomButton col s8">
-      <a class="waves-effect waves-light btn-large">Random</a>
+    <div class="row rButtonRow center-align">
+      <div class="randomButton col s12 ">
+      <a class="waves-effect cyan darken-3 btn-large ">Random</a>
     </div>
   </div>
-   
+   <div class="row col s12 favoritesBox">
+     <ul class="favoriteEntire">
+       <h5 class="favoriteHeader">FAVORITES</h5>
+       <li class="favoritesList" value="1"></li>
+       <li class="favoritesList" value="2"></li>
+       <li class="favoritesList" value="3"></li>
+       <li class="favoritesList" value="4"></li>
+       <li class="favoritesList" value="5"></li>
+     </ul>
+   </div>
 
   <div id="dispData"></div>
   <div id="ingreed"></div>
   <img id="showMe">
+  <script src="food.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
