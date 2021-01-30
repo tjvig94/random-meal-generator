@@ -15,6 +15,9 @@
 .input-field{
     margin-left: 10px;
 }
+.select-dropdown {
+    height: 500px;
+  }
 .chooseACountry {
     padding: 10px;
     line-height: 60px;
@@ -57,10 +60,4 @@ h3 {
 .favoriteEntire {
     color: whitesmoke;
     font-family: 'Montserrat', sans-serif;
-}
-.input-field{
-    color: whitesmoke;
-}
-.optionDropText {
-    color: whitesmoke;
 }
