@@ -6,13 +6,17 @@
     background-size: cover;
 }
 .indexHeader {
+    font-size: 108px;
     text-align: center;
     color: whitesmoke;
     font-family: 'lobster', cursive;
+    margin-bottom: 5%;
+}
+.input-field{
+    margin-left: 10px;
 }
 .chooseACountry {
     padding: 10px;
-    justify-content: center;
     line-height: 60px;
 }
 .firstRow {
@@ -29,12 +33,34 @@ h3 {
     text-align: center;
     margin: 5px 5px 5px 5px;
 }
+#search-button {
+    margin-top: 15px;
+    justify-content: center;
+    width: 15%;
+}
 .rButton {
     justify-content: center;
     align-items: center;
     resize: both;
     overflow: auto;
 }
-.rButtonRow {
-    width: 13%;
+.favoritesBox {
+    margin-top: 8%;
+    text-align: center;
+    resize: both;
+    overflow: auto;
+}
+.favoriteHeader {
+    font-family: 'lobster', cursive;
+    border: whitesmoke, 5px, solid;
+}
+.favoriteEntire {
+    color: whitesmoke;
+    font-family: 'Montserrat', sans-serif;
+}
+.input-field{
+    color: whitesmoke;
+}
+.optionDropText {
+    color: whitesmoke;
 }
