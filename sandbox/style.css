@@ -4,4 +4,9 @@ h3.results-card {
 
 div.drink-section {
    display: none;
+    margin-top: 0;
+}
+
+div.drink-section {
+    display: none;
 }
