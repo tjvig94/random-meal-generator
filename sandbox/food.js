@@ -25,8 +25,13 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
         // log it to see whats in it
         // console.log(response);
         $("#dispData").text(response.meals[0].strMeal);
+        $(".meal-name").text(response.meals[0].strMeal);
+        window.localStorage.setItem("Meal" ,response.meals[0].strMeal);
         $("#showMe").attr("src", response.meals[0].strMealThumb);
-        $("#ingreed").text(response.meals[0])
+        $(".meal-img").attr("src", response.meals[0].strMealThumb);
+        window.localStorage.setItem("Pic" ,response.meals[0].strMealThumb);
+        $(".ingredients").text(response.meals[0]);
+        window.localStorage.setItem("Ingred" ,response.meals[0]);
         getIngredients();
       });
 
@@ -47,10 +52,23 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
         // log it to see whats in it
         console.log(response);
         $("#ingreed").text(response.meals[0].strInstructions);
+        $(".ingredients").text(response.meals[0].strInstructions);
       });
   }
 
-});
+  function initPage(){
+    //$("#country").text(window.localStorage.getItem("Meal"));
+
+  }
+
+  $("#search-button").on("click", function (Event) {
+
+    getFood();
+
+  });
+
+  $("select").formSelect();//DONT REMOVE THIS IS FOR THE DROPDOWN BOX TO WORK!!!!!
+  initPage();
 
 $(document).ready(function () {
   $('select').formSelect();
