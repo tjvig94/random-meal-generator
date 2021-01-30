@@ -8,7 +8,7 @@
     <!-- Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="results.css">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat&display=swap" rel="stylesheet">
@@ -16,15 +16,16 @@
     <title>Results</title>
 </head>
 <body>
-
     <main class="results">
         <div class="container">
             <div class="row">
                 <div class="col s12">
-                    <div class="card red lighten-2">
-                        <div class="card-content white-text">                                                      
-                            <h1 class="meal-name"><span><a class="waves-effect waves-light btn">Favorite</a></span></h1>
-
+                    <div class="card cyan darken-3">
+                        <div class="card-content white-text">
+                            <h2 class="go-back"><a class="go-back" href="index.html">Go Back</a></h2>  
+                            <div class="section">                                                  
+                                <h1 class="meal-name"></h1><span><a class="waves-effect waves-dark cyan lighten-5 btn">Favorite</a></span>
+                            </div>  
                             <div class="divider"></div>
 
                             <div class="section">
@@ -32,11 +33,11 @@
                                     <div class="col s12 m6">
                                         <h3>Ingredients</h3>
                                         <ul class="ingredients section">
-
+                                            <li class="ingredients-item"></li>
                                         </ul>
                                     </div>
                                     <div class="col s12 m6">
-                                        <img class="meal-img responsive-img" src="https://via.placeholder.com/300" alt="">
+                                        <img class="meal-img responsive-img z-depth-2" src="https://via.placeholder.com/300" alt="">
                                     </div>
                                 </div>    
                             </div>
@@ -45,22 +46,22 @@
                                 <div class="row">
                                     <div class="col s12 m6">
                                         <h3>Directions</h3>
-                                        <ol class="directions section">
-
-                                        </ol>
+                                        <ul class="directions section">
+                                            <li class="directions-item"></li>
+                                        </ul>
                                     </div>
                                     <div class="col s12 m6">
-                                        <img class="map-img responsive-img" src="https://via.placeholder.com/300" alt="">
+                                        <img class="map-img responsive-img z-depth-2" src="https://via.placeholder.com/300" alt="">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="section">                           
                                 <div class="row center-align">
-                                    <a class="waves-effect waves-light btn-large retry-btn">Give me something else!</a>
+                                    <a class="waves-effect waves-light cyan lighten-5 btn-large retry-btn">Give me something else!</a>
                                 </div>
                                 <div class="row center-align">
-                                    <a class="waves-effect waves-light btn-large drink-btn">Give me a drink, too!</a>
+                                    <a class="waves-effect waves-light cyan lighten-5 btn-large drink-btn">Give me a drink, too!</a>
                                 </div> 
                             </div>
 
@@ -73,13 +74,11 @@
                                 <div class="section">
                                     <div class="row">
                                         <div class="col">
-                                            <img class="drink-img" src="https://via.placeholder.com/300" alt="">
+                                            <img class="drink-img z-depth-2" src="https://via.placeholder.com/300" alt="">
                                         </div>
                                         <div class="col">
                                             <h3 class="no-margin results-card">Directions</h3>
-                                            <ul class="drink-directions">  
-
-                                            </ul>                                             
+                                            <p class="drink-directions">This is a test</p>                                             
                                         </div>
                                     </div>
                                 </div>                                 
