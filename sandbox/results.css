@@ -11,6 +11,10 @@ body {
     background-attachment: fixed;
 }
 
+div.drink-section {
+    display: none;
+}
+
 h1, h2, h3 {
     font-family: 'Lobster', cursive;
 }
@@ -40,6 +44,6 @@ a.go-back {
 
 a.go-back:hover {
     cursor: pointer;
-    color: grey;
+    color: rgb(219, 215, 215);
 }
 
