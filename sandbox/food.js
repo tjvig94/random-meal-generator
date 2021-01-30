@@ -1,5 +1,13 @@
 $(document).ready(function () {//dont forget this cause it will ruin your day
 
+
+  $("#search-button").on("click", function (Event) {
+
+    getFood();
+
+  });
+
+
   function getFood() {
     // get the search text do some logic on this once it works and you have time
     var sIn = $("#country").val();
@@ -62,7 +70,12 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
   $("select").formSelect();//DONT REMOVE THIS IS FOR THE DROPDOWN BOX TO WORK!!!!!
   initPage();
 
+$(document).ready(function () {
+  $('select').formSelect();
+
 });
+
+
 
 
 
