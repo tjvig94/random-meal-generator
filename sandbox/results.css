@@ -1,0 +1,48 @@
+h3.results-card {
+   margin-top: 0;
+}
+
+body {
+   background-image: url(assets/homepagebackground.jpg);
+   background-color: rgb(20, 54, 54);
+   background-blend-mode: screen;
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-attachment: fixed;
+}
+
+div.drink-section {
+   display: none;
+}
+
+h1, h2, h3 {
+   font-family: 'Lobster', cursive;
+}
+
+p, li, a {
+    font-family: 'Montserrat', sans-serif;
+}
+
+p {
+   font-size: 16px;
+}
+
+.meal-img, .map-img, .drink-img {
+   width: 300px;
+}
+
+.btn, .btn-large {
+   color: black;
+}
+
+a.go-back {
+   text-decoration: none;
+   background-color: none;
+   color: white;
+   font-family: 'Montserrat', sans-serif;
+}
+
+a.go-back:hover {
+   cursor: pointer;
+   color: rgb(219, 215, 215);
+}
