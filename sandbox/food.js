@@ -54,7 +54,42 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
       });
   }
 
+
+
+
+
+
+  function drink() {
+
+        fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+            .then(response => response.json())
+            .then(response => {
+                const drink = response.drinks[0]
+                const drink_photo_url = drink.strDrinkThumb
+                const drink_name = drink.strDrink
+                let drink_recipe = ''
+                for (let i = 1; i <= 15; i++) {
+                    if (drink[`strIngredient${i}`] === null) {
+                        break
+                    }
+                    drink_recipe += drink[`strIngredient${i}`] + ' ' + drink[`strMeasure${i}`]
+                }
+                $('.drink-img').attr("src", drink_photo_url);
+                $('.drink-name').text(drink_name);
+                $('.drink-directions').text(drink_recipe);
+                //document.querySelector('.drink-directions').innerText = drink_recipe
+            })
+      }
+
+
+
+
+
+
+
+
   getFood();
+  drink();
 
 });
 
@@ -74,9 +109,9 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
 //               }
 //               drink_recipe += drink[`strIngredient${i}`] + ' ' + drink[`strMeasure${i}`]
 //           }
-//           document.querySelector('.card-img-top').src = drink_photo_url
-//           document.querySelector('.card-title').innerText = drink_name
-//           document.querySelector('.card-text').innerText = drink_recipe
+//           document.querySelector('.drink-img').src = drink_photo_url
+//           document.querySelector('.drink-directions').innerText = drink_name
+//           document.querySelector('.drink-directions').innerText = drink_recipe
 //       })
 // }
 // drink()
