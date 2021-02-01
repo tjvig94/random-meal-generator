@@ -11,9 +11,11 @@ body {
     background-attachment: fixed;
 }
 
+/* HIDDEN DRINK SECTION */
 div.drink-section {
     display: none;
 }
+/* //////////////////// */
 
 h1, h2, h3 {
     font-family: 'Lobster', cursive;
@@ -45,5 +47,10 @@ a.go-back {
 a.go-back:hover {
     cursor: pointer;
     color: rgb(219, 215, 215);
+}
+
+a.btn, a.btn-large {
+    color: #5D5C61;
+    background-color: #B1A296;
 }
 
