@@ -12,7 +12,7 @@ body {
 }
 
 div.drink-section {
-    display: none;
+    display:inline;/*wass block*/
 }
 
 h1, h2, h3 {
