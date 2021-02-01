@@ -4,6 +4,7 @@
     background-blend-mode: screen;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 .indexHeader {
     font-size: 108px;
@@ -25,9 +26,6 @@
 .firstRow {
     width: 20%;
 }
-.selectText {
-    color: white;
-}
 h3 {
     font-family: 'lobster', cursive;
     color: whitesmoke;
@@ -38,16 +36,18 @@ h3 {
 }
 #search-button {
     margin-top: 15px;
+    background-color: #b1a296;
     justify-content: center;
     width: 15%;
 }
-.rButton {
+#rButton {
+    background-color: #b1a296;
     justify-content: center;
     align-items: center;
     resize: both;
     overflow: auto;
 }
-.favoritesBox {
+/* .favorites {
     margin-top: 8%;
     text-align: center;
     resize: both;
@@ -60,4 +60,18 @@ h3 {
 .favoriteEntire {
     color: whitesmoke;
     font-family: 'Montserrat', sans-serif;
+} */
+.favCard {
+    justify-content: center;
+    align-items: center;
+    resize: both;
+    overflow: auto;
 }
+.card-content {
+    color: whitesmoke;
+    background-color: #b1a296;
+}
+.card-title {
+    font-family: 'lobster', cursive;
+}
+

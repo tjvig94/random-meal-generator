@@ -12,7 +12,7 @@
   <title>Document</title>
 </head>
 <body class="body">
-  <h1 class="indexHeader col s12">Suprise Me-al</h1>
+  <h1 class="indexHeader col s12">Surprise Me-al</h1>
         <div class="row firstRow center-align">
           <div class="input-field col s9">
             <select id="country"  name="country">
@@ -46,7 +46,7 @@
             </select>
             <label class="selectorText" for="country">Choose a Country!</label>
           </div>
-          <a class="waves-effect cyan darken-3 btn col s4" id="search-button"><i class="fas fa-search"></i></a>
+          <a class="waves-effect btn col s4" id="search-button"><i class="fas fa-search"></i></a>
       </div>
       <div class="row h3R">
       <div>
@@ -55,19 +55,20 @@
     </div>
     <div class="row rButtonRow center-align">
       <div class="randomButton col s12 ">
-      <a class="waves-effect cyan darken-3 btn-large ">Random</a>
+      <a class="waves-effect btn-large " id="rButton">Random</a>
     </div>
   </div>
-   <div class="row col s12 favoritesBox">
-     <ul class="favoriteEntire">
-       <h5 class="favoriteHeader">Favorites</h5>
-       <li class="favoritesList" value="1"></li>
-       <li class="favoritesList" value="2"></li>
-       <li class="favoritesList" value="3"></li>
-       <li class="favoritesList" value="4"></li>
-       <li class="favoritesList" value="5"></li>
-     </ul>
-   </div>
+   <div class="row favCard">
+    <div class="sizeOfCard col s6  center-align">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">Favorites</span>
+          <ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
   <script src="food.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
