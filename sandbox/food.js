@@ -1,5 +1,7 @@
 $(document).ready(function () {//dont forget this cause it will ruin your day
 
+  var index = 0 ;
+
   function getFood() {
     // get the search text do some logic on this once it works and you have time
     //var sIn = $("#country").val();
@@ -18,20 +20,22 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
       .then(function (response) {
         // log it to see whats in it
          console.log(response);
-
+        //find a random number in the object so it isnt always 0
+        index=Math.random(response.meals.length);
         //$("#dispData").text(response.meals[0].strMeal);
-        $(".meal-name").text(response.meals[0].strMeal);
-        window.localStorage.setItem("Meal" ,response.meals[0].strMeal);
+        $(".meal-name").text(response.meals[index].strMeal);
+        window.localStorage.setItem("Meal" ,response.meals[index].strMeal);
         //$("#showMe").attr("src", response.meals[0].strMealThumb);
-        $(".meal-img").attr("src", response.meals[0].strMealThumb);
-        window.localStorage.setItem("Pic" ,response.meals[0].strMealThumb);
-        $(".ingredients").text(response.meals[0]);
-        window.localStorage.setItem("Ingred" ,response.meals[0]);
+        $(".meal-img").attr("src", response.meals[index].strMealThumb);
+        window.localStorage.setItem("Pic" ,response.meals[index].strMealThumb);
+        $(".ingredients").text(response.meals[index]);
+        window.localStorage.setItem("Ingred" ,response.meals[index]);
 
         // $("#dispData").text(response.meals[0].strMeal);
         // $("#showMe").attr("src", response.meals[0].strMealThumb);
         // $("#ingreed").text(response.meals[0])
         getIngredients();
+        index ++;
       });
 
   }
@@ -54,11 +58,6 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
       });
   }
 
-
-
-
-
-
   function drink() {
 
         fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
@@ -80,13 +79,6 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
                 //document.querySelector('.drink-directions').innerText = drink_recipe
             })
       }
-
-
-
-
-
-
-
 
   getFood();
   drink();
