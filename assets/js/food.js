@@ -85,6 +85,13 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
 
   getFood();
   drink();
+  
+  $(".food-btn").on("click", function(event){
+    getFood();
+  });
+  $(".drink-btn").on("click", function(event){
+    drink();
+  });
 
 });
 
