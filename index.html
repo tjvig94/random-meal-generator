@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,64 +9,68 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <title>Document</title>
 </head>
+
 <body class="body">
   <div id="bg">
-  <h1 class="indexHeader col s12">Surprise Me-al</h1>
-        <div class="row firstRow center-align">
-          <div class="input-field col s9">
-            <select id="country"  name="country">
-               <option value="" disabled selected>Choose your option</option>
-               <option value="American" data-icon="./assets/flags/unitedstates.jfif">American</option>
-               <option value="British" data-icon="./assets/flags/british.png">British</option>
-               <option value="Canadian" data-icon="./assets/flags/canadian.jpg">Canadian</option>
-               <option value="Chinese" data-icon="./assets/flags/chinese.jpg">Chinese</option>
-               <option value="Dutch"data-icon="./assets/flags/dutch.png">Dutch</option>
-               <option value="Egyptian" data-icon="./assets/flags/egyptian.jpg" >Egyptian</option>
-               <option value="French" data-icon="./assets/flags/french.png">French</option>
-               <option value="Greek" data-icon="./assets/flags/greek.jpg">Greek</option>
-               <option value="Indian" data-icon="./assets/flags/india.jpg">Indian</option>
-               <option value="Irish" data-icon="./assets/flags/irish.jpg">Irish</option>
-               <option value="Italian" data-icon="./assets/flags/italy.jpg">Italian</option>
-               <option value="Jamaican" data-icon="./assets/flags/jamaican.jpg">Jamacian</option>
-               <option value="Japanese" data-icon="./assets/flags/japanese.jpg">Japanese</option>
-               <option value="Kenyan" data-icon="./assets/flags/kenyan.jpg">Kenyan</option>
-               <option value="Malaysian" data-icon="./assets/flags/malaysian.jpg">Malaysian</option>
-               <option value="Mexican" data-icon="./assets/flags/mexico.jpg">Mexican</option>
-               <option value="Moroccan" data-icon="./assets/flags/morocco.png">Moroccan</option>
-               <option value="Russian" data-icon="./assets/flags/russian.jpg">Russian</option>
-               <option value="Spanish" data-icon="./assets/flags/spanish.png">Spanish</option>
-               <option value="Saudi Arabian" data-icon="./assets/flags/saudi.jpg">Saudi Arabian</option>
-               <option value="Thai" data-icon="./assets/flags/thai.png">Thai</option>
-               <option value="Tunisian" data-icon="./assets/flags/tunisian.jpg">Tunisian</option>
-               <option value="Turkish" data-icon="./assets/flags/turkish.png">Turkish</option>
-               <option value="Polish" data-icon="./assets/flags/poland.jpg">Polish</option>
-               <option value="Vietnamese" data-icon="./assets/flags/vietnamese.png">Vietnamese</option>
+    <h1 class="indexHeader col s12">Surprise Me-al</h1>
+    <div class="row firstRow center-align">
+      <div class="input-field col s9">
+        <select id="country" name="country">
+          <option value="" disabled selected>Choose your option</option>
+          <option value="American" data-icon="./assets/flags/unitedstates.jfif">American</option>
+          <option value="British" data-icon="./assets/flags/british.png">British</option>
+          <option value="Canadian" data-icon="./assets/flags/canadian.jpg">Canadian</option>
+          <option value="Chinese" data-icon="./assets/flags/chinese.jpg">Chinese</option>
+          <option value="Dutch" data-icon="./assets/flags/dutch.png">Dutch</option>
+          <option value="Egyptian" data-icon="./assets/flags/egyptian.jpg">Egyptian</option>
+          <option value="French" data-icon="./assets/flags/french.png">French</option>
+          <option value="Greek" data-icon="./assets/flags/greek.jpg">Greek</option>
+          <option value="Indian" data-icon="./assets/flags/india.jpg">Indian</option>
+          <option value="Irish" data-icon="./assets/flags/irish.jpg">Irish</option>
+          <option value="Italian" data-icon="./assets/flags/italy.jpg">Italian</option>
+          <option value="Jamaican" data-icon="./assets/flags/jamaican.jpg">Jamacian</option>
+          <option value="Japanese" data-icon="./assets/flags/japanese.jpg">Japanese</option>
+          <option value="Kenyan" data-icon="./assets/flags/kenyan.jpg">Kenyan</option>
+          <option value="Malaysian" data-icon="./assets/flags/malaysian.jpg">Malaysian</option>
+          <option value="Mexican" data-icon="./assets/flags/mexico.jpg">Mexican</option>
+          <option value="Moroccan" data-icon="./assets/flags/morocco.png">Moroccan</option>
+          <option value="Russian" data-icon="./assets/flags/russian.jpg">Russian</option>
+          <option value="Spanish" data-icon="./assets/flags/spanish.png">Spanish</option>
+          <option value="Saudi Arabian" data-icon="./assets/flags/saudi.jpg">Saudi Arabian</option>
+          <option value="Thai" data-icon="./assets/flags/thai.png">Thai</option>
+          <option value="Tunisian" data-icon="./assets/flags/tunisian.jpg">Tunisian</option>
+          <option value="Turkish" data-icon="./assets/flags/turkish.png">Turkish</option>
+          <option value="Polish" data-icon="./assets/flags/poland.jpg">Polish</option>
+          <option value="Vietnamese" data-icon="./assets/flags/vietnamese.png">Vietnamese</option>
 
-            </select>
-            <label class="selectorText" for="country">Choose a Country!</label>
-          </div>
-          <a class="waves-effect btn col s4" id="search-button"  onclick="window.location.href='results.html';"><i class="fas fa-search"></i></a>
+        </select>
+        <label class="selectorText" for="country">Choose a Country!</label>
       </div>
-      <div class="row h3R">
-  <div class="container">
-   <div class="row favCard">
-    <div class="sizeOfCard col s12  center-align">
-      <div class="card">
-        <div class="card-content">
-          <span class="card-title">Favorites</span>
-          <ul class="list-group">
-            <li class="search-input"></li>
-          </ul>
+      <a class="waves-effect btn col s4" id="search-button" onclick="window.location.href='results.html';"><i
+          class="fas fa-search"></i></a>
+    </div>
+    <div class="row h3R">
+      <div class="container">
+        <div class="row favCard">
+          <div class="sizeOfCard col s12  center-align">
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title">Favorites</span>
+                <ul class="list-group">
+                  <li class="search-input"></li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    </div>
-  </div>
 
-  <script src="assets/js/selector.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script src="assets/js/selector.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
+
 </html>
