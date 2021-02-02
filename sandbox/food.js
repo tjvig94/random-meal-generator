@@ -1,16 +1,12 @@
 $(document).ready(function () {//dont forget this cause it will ruin your day
 
-
-  $("#search-button").on("click", function (Event) {
-
-    getFood();
-
-  });
-
+  var index = 0 ;
 
   function getFood() {
     // get the search text do some logic on this once it works and you have time
-    var sIn = $("#country").val();
+    //var sIn = $("#country").val();
+   // console.log(window.localStorage.getItem("Country"));
+    var sIn = window.localStorage.getItem("Country");
     //console.log(sIn);
     //put the api link here
     var queryURL = "https://www.themealdb.com/api/json/v1/1/filter.php?a=" + sIn //https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata"//"https://www.thecocktaildb.com/api/json/v1/1/random.php"; //"https://www.themealdb.com/api/json/v1/1/categories.php"; //"https://www.themealdb.com/api/json/v1/1/filter.php?a=British";
@@ -23,18 +19,30 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
 
       .then(function (response) {
         // log it to see whats in it
-        // console.log(response);
-        $("#dispData").text(response.meals[0].strMeal);
-        $("#showMe").attr("src", response.meals[0].strMealThumb);
-        $("#ingreed").text(response.meals[0])
+         console.log(response);
+        //find a random number in the object so it isnt always 0
+        index=Math.random(response.meals.length);
+        //$("#dispData").text(response.meals[0].strMeal);
+        $(".meal-name").text(response.meals[index].strMeal);
+        window.localStorage.setItem("Meal" ,response.meals[index].strMeal);
+        //$("#showMe").attr("src", response.meals[0].strMealThumb);
+        $(".meal-img").attr("src", response.meals[index].strMealThumb);
+        window.localStorage.setItem("Pic" ,response.meals[index].strMealThumb);
+        $(".ingredients").text(response.meals[index]);
+        window.localStorage.setItem("Ingred" ,response.meals[index]);
+
+        // $("#dispData").text(response.meals[0].strMeal);
+        // $("#showMe").attr("src", response.meals[0].strMealThumb);
+        // $("#ingreed").text(response.meals[0])
         getIngredients();
+        index ++;
       });
 
   }
 
   function getIngredients() {
     // get the search text do some logic on this once it works and you have time
-    var x = $("#dispData").text();
+    var x = $(".meal-name").text();
     //put the api link here
     var queryURL1 = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + x //https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata"//"https://www.thecocktaildb.com/api/json/v1/1/random.php"; //"https://www.themealdb.com/api/json/v1/1/categories.php"; //"https://www.themealdb.com/api/json/v1/1/filter.php?a=British";
     //get the url info
@@ -46,16 +54,59 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
       .then(function (response) {
         // log it to see whats in it
         console.log(response);
-        $("#ingreed").text(response.meals[0].strInstructions);
+        $(".ingredients").text(response.meals[0].strInstructions);
       });
   }
 
+  function drink() {
+
+        fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+            .then(response => response.json())
+            .then(response => {
+                const drink = response.drinks[0]
+                const drink_photo_url = drink.strDrinkThumb
+                const drink_name = drink.strDrink
+                let drink_recipe = ''
+                for (let i = 1; i <= 15; i++) {
+                    if (drink[`strIngredient${i}`] === null) {
+                        break
+                    }
+                    drink_recipe += drink[`strIngredient${i}`] + ' ' + drink[`strMeasure${i}`]
+                }
+                $('.drink-img').attr("src", drink_photo_url);
+                $('.drink-name').text(drink_name);
+                $('.drink-directions').text(drink_recipe);
+                //document.querySelector('.drink-directions').innerText = drink_recipe
+            })
+      }
+
+  getFood();
+  drink();
+
 });
 
-$(document).ready(function () {
-  $('select').formSelect();
 
-});
+// function drink() {
+
+//   fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+//       .then(response => response.json())
+//       .then(response => {
+//           const drink = response.drinks[0]
+//           const drink_photo_url = drink.strDrinkThumb
+//           const drink_name = drink.strDrink
+//           let drink_recipe = ''
+//           for (let i = 1; i <= 15; i++) {
+//               if (drink[`strIngredient${i}`] === null) {
+//                   break
+//               }
+//               drink_recipe += drink[`strIngredient${i}`] + ' ' + drink[`strMeasure${i}`]
+//           }
+//           document.querySelector('.drink-img').src = drink_photo_url
+//           document.querySelector('.drink-directions').innerText = drink_name
+//           document.querySelector('.drink-directions').innerText = drink_recipe
+//       })
+// }
+// drink()
 
 
 
@@ -63,6 +114,25 @@ $(document).ready(function () {
 
 
 
+
+
+
+
+
+
+
+
+// $("#search-button").on("click", function (Event) {
+
+//   getFood();
+
+// });
+
+
+// $(document).ready(function () {
+//   $('select').formSelect();
+
+// });
 
 // $(document).ready(function() {//dont forget this cause it will ruin your day
 
