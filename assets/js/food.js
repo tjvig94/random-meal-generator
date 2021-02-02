@@ -69,6 +69,7 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
                 const drink = response.drinks[0]
                 const drink_photo_url = drink.strDrinkThumb
                 const drink_name = drink.strDrink
+                const instructions = drink.strInstructions
                 let drink_recipe = ''
                 for (let i = 1; i <= 15; i++) {
                     if (drink[`strIngredient${i}`] === null) {
@@ -79,6 +80,7 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
                 $('.drink-img').attr("src", drink_photo_url);
                 $('.drink-name').text(drink_name);
                 $('.drink-directions').text(drink_recipe);
+                $('.instructions').text(instructions);
                 //document.querySelector('.drink-directions').innerText = drink_recipe
             })
       }
