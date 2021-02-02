@@ -1,5 +1,5 @@
 .body {
-    background-image: url(./homepagebackground.jpg);
+    background-image: url(homepagebackground.jpg);
     background-color: rgb(20, 54, 54);
     background-blend-mode: screen;
     background-repeat: no-repeat;
@@ -44,7 +44,6 @@ h3 {
     background-color: #b1a296;
     justify-content: center;
     align-items: center;
-    resize: both;
     overflow: auto;
 }
 /* .favorites {
