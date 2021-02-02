@@ -11,11 +11,15 @@ body {
     background-attachment: fixed;
 }
 
-/* HIDDEN DRINK SECTION */
+
 div.drink-section {
-    display:inline;/*wass block*/
+    display:inline;
 }
-/* //////////////////// */
+
+p {
+    line-height: 30px;
+}
+
 
 h1, h2, h3 {
     font-family: 'Lobster', cursive;
