@@ -66,19 +66,22 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
         fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
             .then(response => response.json())
             .then(response => {
+                console.log(response);
                 const drink = response.drinks[0]
                 const drink_photo_url = drink.strDrinkThumb
                 const drink_name = drink.strDrink
-                let drink_recipe = ''
+                $(".drink-ingredients").empty();
                 for (let i = 1; i <= 15; i++) {
                     if (drink[`strIngredient${i}`] === null) {
                         break
                     }
-                    drink_recipe += drink[`strIngredient${i}`] + ' ' + drink[`strMeasure${i}`]
+                    let ingredient = $("<li class='drink-ingredient'>");
+                    (drink[`strMeasure${i}`] === null) ? drink[`strMeasure${i}`] = "" : "";
+                    ingredient.text(drink[`strIngredient${i}`] + ' ' + drink[`strMeasure${i}`]);
+                    $(".drink-ingredients").append(ingredient); 
                 }
                 $('.drink-img').attr("src", drink_photo_url);
                 $('.drink-name').text(drink_name);
-                $('.drink-directions').text(drink_recipe);
                 //document.querySelector('.drink-directions').innerText = drink_recipe
             })
       }
