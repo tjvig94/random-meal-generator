@@ -1,16 +1,28 @@
 $(document).ready(function () {//dont forget this cause it will ruin your day
 
   var index = 0 ;
+  //global to check if favorites was clicked clear it
+  window.localStorage.setItem("Fav", "");
 
   function getFood() {
     // get the search text do some logic on this once it works and you have time
     //var sIn = $("#country").val();
    // console.log(window.localStorage.getItem("Country"));
+
+   //some logic to tell if you selected a new country or a favorite
+   var countryOrFav = window.localStorage.getItem("FavSelected");
+   if (countryOrFav == "favSelect"){
+    var mealName = window.localStorage.getItem("Meal");
+    var queryURL = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + mealName;
+   }
+   else {
     var sIn = window.localStorage.getItem("Country");
     //console.log(sIn);
     //put the api link here
     var queryURL = "https://www.themealdb.com/api/json/v1/1/filter.php?a=" + sIn //https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata"//"https://www.thecocktaildb.com/api/json/v1/1/random.php"; //"https://www.themealdb.com/api/json/v1/1/categories.php"; //"https://www.themealdb.com/api/json/v1/1/filter.php?a=British";
-
+   }
+    console.log(countryOrFav);
+    console.log(queryURL);
     //get the url info
     $.ajax({
       url: queryURL,
@@ -28,12 +40,13 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
       console.log(index);
       //$("#dispData").text(response.meals[0].strMeal);
       $(".meal-name").text(response.meals[index].strMeal);
-      window.localStorage.setItem("Meal" ,response.meals[index].strMeal);
+      window.localStorage.setItem("Meal" ,response.meals[index].strMeal);//make this an array of meal names 
       //$("#showMe").attr("src", response.meals[0].strMealThumb);
       $(".meal-img").attr("src", response.meals[index].strMealThumb);
       window.localStorage.setItem("Pic" ,response.meals[index].strMealThumb);
-      $(".ingredients").text(response.meals[index]);
-      window.localStorage.setItem("Ingred" ,response.meals[index]);
+      window.localStorage.setItem("IndexFav", index);
+      //$(".ingredients").text(response.meals[index]);
+      //window.localStorage.setItem("Ingred" ,response.meals[0].strInstructions);
       // $("#dispData").text(response.meals[0].strMeal);
       // $("#showMe").attr("src", response.meals[0].strMealThumb);
       // $("#ingreed").text(response.meals[0])
@@ -58,6 +71,7 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
         // log it to see whats in it
         console.log(response);
         $(".ingredients").text(response.meals[0].strInstructions);
+        window.localStorage.setItem("Ingred" ,response.meals[0].strInstructions);
       });
   }
 
@@ -74,18 +88,25 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
                     if (drink[`strIngredient${i}`] === null) {
                         break
                     }
-                    drink_recipe += drink[`strIngredient${i}`] + ' ' + drink[`strMeasure${i}`]
+                    console.log(response);
+                    console.log(drink[`strMeasure${i}`]);
+                    console.log(drink[`strIngredient${i}`]);
+                    if (drink[`strMeasure${i}`] === null ){
+                      var drinkMeas = " ";
+                    }
+                    else {
+                      drinkMeas =  drink[`strMeasure${i}`];
+                    };
+                    drink_recipe += drink[`strIngredient${i}`] + drink[`strMeasure${i}`];
                 }
                 $('.drink-img').attr("src", drink_photo_url);
                 $('.drink-name').text(drink_name);
+                //$('.drink-directions').prepend(drink.strInstructions);
                 $('.drink-directions').text(drink_recipe);
                 //document.querySelector('.drink-directions').innerText = drink_recipe
             })
       }
 
-  getFood();
-  drink();
-  
   $(".food-btn").on("click", function(event){
     getFood();
   });
@@ -93,7 +114,68 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
     drink();
   });
 
+  $(".btn").on("click", function(event){
+    //set teh Fav global so we can check it on index.html
+    window.localStorage.setItem("Fav", "Fav");
+    window.location.href='index.html'
+  });
+
+  getFood();
+  drink();
+
 });
+
+
+
+
+
+
+
+
+
+
+
+// function drink() {
+
+//   fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+//       .then(response => response.json())
+//       .then(response => {
+//           const drink = response.drinks[0]
+//           const drink_photo_url = drink.strDrinkThumb
+//           const drink_name = drink.strDrink
+//           let drink_recipe = ''
+//           for (let i = 1; i <= 15; i++) {
+//               if (drink[`strIngredient${i}`] === null) {
+//                   break
+//               }
+//               console.log(response);
+//               console.log(drink[`strMeasure${i}`]);
+//               console.log(drink[`strIngredient${i}`]);
+//               if (drink[`strMeasure${i}`] === null ){
+//                 var drinkMeas = " ";
+//               }
+//               else {
+//                 drinkMeas =  drink[`strMeasure${i}`];
+//               };
+//               // $('.drink-directions').prepend(drinkMeas);
+//               // $('.drink-directions').prepend('<BR>');
+//               // $('.drink-directions').prepend(drink[`strIngredient${i}`]);
+//               // $('.drink-directions').prepend('<BR>');
+//               drink_recipe += drink[`strIngredient${i}`] + drink[`strMeasure${i}`];
+//               // drink_recipe = drink_recipe + drinkMeas + String.fromCharCode(13);
+//               // drink_recipe = drink_recipe + drink[`strIngredient${i}`];
+//           }
+//           $('.drink-img').attr("src", drink_photo_url);
+//           $('.drink-name').text(drink_name);
+//           //$('.drink-directions').prepend(drink.strInstructions);
+//           //$('.drink-directions').text(drink_recipe);
+//           document.querySelector('.drink-directions').innerText = drink_recipe
+//       })
+// }
+
+
+
+
 
 
 // function drink() {
