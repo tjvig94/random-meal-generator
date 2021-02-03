@@ -20,19 +20,5 @@ https://balsamiq.cloud/s522bel/pa3ocwe
 https://www.thecocktaildb.com/api.php
 https://www.themealdb.com/api.php
 
-## Tasks
-
-Patrick - JS/local storage
-Tom - JS/local storage
-Chad - UI
-Tim - UI
-Andrew - FLEX
-
-## Meeting Days
-
-Tuesdays 4:35
-Fridays 4:30
-
-## Trello
-
-https://trello.com/b/7SIDpjsD/project-1
+## Live Application
+[Surprise Me-al](https://tomfallon9.github.io/random-meal-generator/)
