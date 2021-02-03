@@ -9,6 +9,7 @@
     z-index: -1;
 }
 
+
 #bg {
     background-color: #1e3b53;
     background-blend-mode: screen;
@@ -49,10 +50,6 @@
     height: 500px;
 }
 
-.chooseACountry {
-    padding: 10px;
-    line-height: 60px;
-}
 
 .firstRow {
     width: 20%;
