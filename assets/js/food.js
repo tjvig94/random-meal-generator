@@ -94,6 +94,7 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
   $(".drink-btn").on("click", function (event) {
     drink();
   });
+  
 
 });
 
