@@ -109,8 +109,17 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
     //need to store the meal name in the array ONLY here
     let listMealArray = JSON.parse(localStorage.getItem("Meal"));//read in the existing array of meal names 
     if (listMealArray==null){listMealArray=[]}//if we are at the first time we save a fav just initialize the array
-    listMealArray.push(strMealName);//push the meal name into the last index
-    window.localStorage.setItem("Meal" ,JSON.stringify(listMealArray));//set the local storage array Meal to this favorite 
+    //foor loop to find duplicates?
+   // listMealArray.sort();//sort alphabetically 
+    //for (let d = 0; d < listMealArray.length; d++){
+      //if (listMealArray[d] === strMealName) {
+        //move along quietly
+     // }
+     // else{//save it as its a new one
+        listMealArray.push(strMealName);//push the meal name into the last index
+        window.localStorage.setItem("Meal" ,JSON.stringify(listMealArray));//set the local storage array Meal to this favorite
+     // }
+   // }
   });
 
   getFood();
