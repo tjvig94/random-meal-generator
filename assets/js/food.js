@@ -1,11 +1,11 @@
 $(document).ready(function () {//dont forget this cause it will ruin your day
 
-  var index = 0 ;
+  var index = 0;
 
   function getFood() {
     // get the search text do some logic on this once it works and you have time
     //var sIn = $("#country").val();
-   // console.log(window.localStorage.getItem("Country"));
+    // console.log(window.localStorage.getItem("Country"));
     var sIn = window.localStorage.getItem("Country");
     //console.log(sIn);
     //put the api link here
@@ -101,13 +101,14 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
 
   getFood();
   drink();
-  
-  $(".food-btn").on("click", function(event){
+
+  $(".food-btn").on("click", function (event) {
     getFood();
   });
-  $(".drink-btn").on("click", function(event){
+  $(".drink-btn").on("click", function (event) {
     drink();
   });
+  
 
 });
 
