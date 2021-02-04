@@ -17,29 +17,30 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
       method: "GET"
     })
 
-      .then(function (response) {
-        // log it to see whats in it
-        console.log(response);
-        console.log(response.meals[index]);
-        //find a random number in the object so it isnt always 0
-        let min = 0;
-        let max = response.meals.length;
-        index = Math.floor(Math.random() * (max - min) + min);
-        console.log(index);
-        //$("#dispData").text(response.meals[0].strMeal);
-        $(".meal-name").text(response.meals[index].strMeal);
-        window.localStorage.setItem("Meal", response.meals[index].strMeal);
-        //$("#showMe").attr("src", response.meals[0].strMealThumb);
-        $(".meal-img").attr("src", response.meals[index].strMealThumb);
-        window.localStorage.setItem("Pic", response.meals[index].strMealThumb);
-        $(".ingredients").text(response.meals[index]);
-        window.localStorage.setItem("Ingred", response.meals[index]);
-        // $("#dispData").text(response.meals[0].strMeal);
-        // $("#showMe").attr("src", response.meals[0].strMealThumb);
-        // $("#ingreed").text(response.meals[0])
-        getIngredients();
-        index++;
-      });
+    .then(function (response) {
+      // log it to see whats in it
+       console.log(response);
+       console.log(response.meals[index]);
+      //find a random number in the object so it isnt always 0
+      let min = 0;
+      let max = response.meals.length;
+      index = Math.floor(Math.random() * (max - min)+min);
+      console.log(index);
+      //$("#dispData").text(response.meals[0].strMeal);
+      $(".meal-name").text(response.meals[index].strMeal);
+      window.localStorage.setItem("Meal" ,response.meals[index].strMeal);
+      //$("#showMe").attr("src", response.meals[0].strMealThumb);
+      $(".meal-img").attr("src", response.meals[index].strMealThumb);
+      window.localStorage.setItem("Pic" ,response.meals[index].strMealThumb);
+      $(".ingredients").text(response.meals[index]);
+      window.localStorage.setItem("Ingred" ,response.meals[index]);
+      // $("#dispData").text(response.meals[0].strMeal);
+      // $("#showMe").attr("src", response.meals[0].strMealThumb);
+      // $("#ingreed").text(response.meals[0])
+      getIngredients();
+
+      index ++;
+    });
 
   }
 
@@ -57,33 +58,46 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
       .then(function (response) {
         // log it to see whats in it
         console.log(response);
-        $(".ingredients").text(response.meals[0].strInstructions);
+        $(".directions").text(response.meals[0].strInstructions);
+        let meal = response.meals[0];
+        $(".meal-ingredients").empty();
+        for (let i = 1; i <= 15; i++) {
+          if (meal[`strIngredient${i}`] === null) {
+              break
+          }
+          let ingredient = $("<li class='meal-ingredient'>");
+          (meal[`strMeasure${i}`] === null) ? meal[`strMeasure${i}`] = "" : "";
+          ingredient.text(meal[`strIngredient${i}`] + ' ' + meal[`strMeasure${i}`]);
+          $(".meal-ingredients").append(ingredient); 
+        }
       });
   }
 
   function drink() {
 
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
-      .then(response => response.json())
-      .then(response => {
-        const drink = response.drinks[0]
-        const drink_photo_url = drink.strDrinkThumb
-        const drink_name = drink.strDrink
-        const instructions = drink.strInstructions
-        let drink_recipe = ''
-        for (let i = 1; i <= 15; i++) {
-          if (drink[`strIngredient${i}`] === null) {
-            break
-          }
-          drink_recipe += drink[`strIngredient${i}`] + ' ' + drink[`strMeasure${i}`]
-        }
-        $('.drink-img').attr("src", drink_photo_url);
-        $('.drink-name').text(drink_name);
-        $('.drink-directions').text(drink_recipe);
-        $('.instructions').text(instructions);
-        //document.querySelector('.drink-directions').innerText = drink_recipe
-      })
-  }
+        fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+            .then(response => response.json())
+            .then(response => {
+                console.log(response);
+                const drink = response.drinks[0]
+                const drink_photo_url = drink.strDrinkThumb
+                const drink_name = drink.strDrink
+                $(".drink-ingredients").empty();
+                for (let i = 1; i <= 15; i++) {
+                    if (drink[`strIngredient${i}`] === null) {
+                        break
+                    }
+                    let ingredient = $("<li class='drink-ingredient'>");
+                    (drink[`strMeasure${i}`] === null) ? drink[`strMeasure${i}`] = "" : "";
+                    ingredient.text(drink[`strIngredient${i}`] + ' ' + drink[`strMeasure${i}`]);
+                    $(".drink-ingredients").append(ingredient); 
+                }
+                $('.drink-img').attr("src", drink_photo_url);
+                $('.drink-name').text(drink_name);
+                $(".drink-directions").text(drink.strInstructions);
+                //document.querySelector('.drink-directions').innerText = drink_recipe
+            })
+      }
 
   getFood();
   drink();

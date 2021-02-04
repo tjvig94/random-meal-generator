@@ -9,7 +9,6 @@
     z-index: -1;
 }
 
-
 #bg {
     background-color: #1e3b53;
     background-blend-mode: screen;
@@ -23,6 +22,7 @@
     animation-fill-mode: forwards;
 }
 
+
 @keyframes fadeInAnimation {
     0% {
         opacity: 0;
@@ -32,18 +32,33 @@
     }
 }
 
-
-
 .indexHeader {
     font-size: 108px;
+
+h1.indexHeader {
+    font-size: 86px;
     text-align: center;
     color: whitesmoke;
     font-family: 'lobster', cursive;
-    margin-bottom: 5%;
+    padding: 3%;
+    margin: auto;
+    max-width: 50%;
 }
+div.instBox {
+    background-color: #b1a296;
+    margin: auto;
+}
+
 
 .input-field {
     margin-left: 10px;
+
+p.instP {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: whitesmoke;
+    justify-content: center;
+    align-items: center;
 }
 
 .select-dropdown {
@@ -53,6 +68,16 @@
 
 .firstRow {
     width: 20%;
+  }
+
+label.chooseACountry {
+    padding: 10px;
+    line-height: 60px;
+}
+
+div.firstRow {
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
 h3 {
@@ -60,52 +85,76 @@ h3 {
     color: whitesmoke;
 }
 
+
 .h3R {
     text-align: center;
     margin: 5px 5px 5px 5px;
 }
 
 #search-button {
+
+a#search-button {
+
     margin-top: 15px;
     background-color: #b1a296;
     justify-content: center;
-    width: 15%;
+    max-width: 10%;
+    padding: 0;
 }
 
-#rButton {
-    background-color: #b1a296;
+div.favCard {
     justify-content: center;
     align-items: center;
-    overflow: auto;
+    display: block;
 }
 
-/* .favorites {
-    margin-top: 8%;
-    text-align: center;
-    resize: both;
-    overflow: auto;
-}
-.favoriteHeader {
-    font-family: 'lobster', cursive;
-    border: whitesmoke, 5px, solid;
-}
-.favoriteEntire {
+div.card-content {
     color: whitesmoke;
+    background-color: #b1a296;
+}
+
+span.card-title {
+    font-size: 45px !important;
+    font-family: 'lobster', cursive;
+}
+
+li.search-input {
     font-family: 'Montserrat', sans-serif;
-} */
-
-.favCard {
-    justify-content: center;
-    align-items: center;
-    resize: both;
-    overflow: auto;
 }
 
-.card-content {
-    color: whitesmoke;
-    background-color: #b1a296;
+select {
+    background: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    right: 0; top: 0;
 }
 
-.card-title {
-    font-family: 'lobster', cursive;
+@media only screen and (max-width: 992px){
+    .favCard {
+    width: 50%;
+    }
+    .instBox {
+        width: 50%;
+    }
 }
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .btn-responsive {
+      padding:4px 9px;
+      font-size:90%;
+      line-height: 1.2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .btn-responsive {
+      padding:2px 4px;
+      font-size:80%;
+      line-height: 1;
+      border-radius:3px;
+    }
+  }
