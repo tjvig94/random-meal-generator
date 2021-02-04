@@ -12,8 +12,9 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
    //some logic to tell if you selected a new country or a favorite
    var countryOrFav = window.localStorage.getItem("FavSelected");
    if (countryOrFav == "favSelect"){
-    var mealName = window.localStorage.getItem("Meal");
-    var queryURL = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + mealName;
+    var lsMealNames = localStorage.getItem("FavMeal");
+        
+    var queryURL = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + lsMealNames;
    }
    else {
     var sIn = window.localStorage.getItem("Country");
@@ -31,29 +32,26 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
 
     .then(function (response) {
       // log it to see whats in it
-       console.log(response);
-       console.log(response.meals[index]);
       //find a random number in the object so it isnt always 0
       let min = 0;
       let max = response.meals.length;
       index = Math.floor(Math.random() * (max - min)+min);
       console.log(index);
-      //$("#dispData").text(response.meals[0].strMeal);
       $(".meal-name").text(response.meals[index].strMeal);
-      window.localStorage.setItem("Meal" ,response.meals[index].strMeal);//make this an array of meal names 
-      //$("#showMe").attr("src", response.meals[0].strMealThumb);
+      //window.localStorage.setItem("Meal" ,response.meals[index].strMeal);
+      //make this an array of meal names 
+      let x = response.meals[index].strMeal;
+      var listMealArray = JSON.parse(localStorage.getItem("Meal"));
+      listMealArray.push(x);//push this in 
+  
+      window.localStorage.setItem("Meal" ,JSON.stringify(listMealArray));
+      
       $(".meal-img").attr("src", response.meals[index].strMealThumb);
       window.localStorage.setItem("Pic" ,response.meals[index].strMealThumb);
       window.localStorage.setItem("IndexFav", index);
-      //$(".ingredients").text(response.meals[index]);
-      //window.localStorage.setItem("Ingred" ,response.meals[0].strInstructions);
-      // $("#dispData").text(response.meals[0].strMeal);
-      // $("#showMe").attr("src", response.meals[0].strMealThumb);
-      // $("#ingreed").text(response.meals[0])
       getIngredients();
       index ++;
     });
-
   }
 
   function getIngredients() {
@@ -66,10 +64,8 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
       url: queryURL1,
       method: "GET"
     })
-
       .then(function (response) {
         // log it to see whats in it
-        console.log(response);
         $(".ingredients").text(response.meals[0].strInstructions);
         window.localStorage.setItem("Ingred" ,response.meals[0].strInstructions);
       });
@@ -88,9 +84,6 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
                     if (drink[`strIngredient${i}`] === null) {
                         break
                     }
-                    console.log(response);
-                    console.log(drink[`strMeasure${i}`]);
-                    console.log(drink[`strIngredient${i}`]);
                     if (drink[`strMeasure${i}`] === null ){
                       var drinkMeas = " ";
                     }
@@ -108,6 +101,7 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
       }
 
   $(".food-btn").on("click", function(event){
+    window.localStorage.setItem("FavSelected", "");
     getFood();
   });
   $(".drink-btn").on("click", function(event){
@@ -115,25 +109,15 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
   });
 
   $(".btn").on("click", function(event){
-    //set teh Fav global so we can check it on index.html
+    //set the Fav global so we can check it on index.html
     window.localStorage.setItem("Fav", "Fav");
-    window.location.href='index.html'
+    //window.location.href='index.html'
   });
 
   getFood();
   drink();
 
 });
-
-
-
-
-
-
-
-
-
-
 
 // function drink() {
 

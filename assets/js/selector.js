@@ -1,11 +1,15 @@
 $(document).ready(function () {
 
 
+//read the favorites from local storage if there are any
+//load the results into the list
+//
+
 //newst item goes last
 //when you click on the button get meal name
 //setitem meal in local storage
 //read the local storage and make it a json obj or array
-  var arrMealNames = ["hotdog", "chili", "lobsta"];
+  var arrMealNamesList = [];
 
   function init(){
     var listOfFavs = getFavs();
@@ -23,20 +27,21 @@ $(document).ready(function () {
       }
       //loop through the local storage array if it exists
   }
+
+
+//in global scope make meal a variable 
+
   
-
-
   function getFavs(){
     //append or prepend the favorite to the list
     //JSON.parse(localStorage.getItem("todos"));
     let favs = JSON.parse(localStorage.getItem("Meal"));//maybe make Meals MealNames as its a list of meals 
     if (favs){//falsey vals are empty strings 0 null undefined and false 
-      
+      console.log(favs);
     }
-    return window.localStorage.getItem("Meal");//return an empty array
+    return favs; // window.localStorage.getItem("Meal");//return an empty array
   }
 
-  
   function makeNewJSON(){
     //stringify data into new json obj in local storage
   }
@@ -46,6 +51,7 @@ $(document).ready(function () {
     
     //window.localStorage.setItem("Country", $(".select-dropdown.dropdown-trigger").val());
     window.localStorage.setItem("FavSelected", "favSelect");//key to know if they click on the search button or the favorite 
+    window.localStorage.setItem("FavMeal", $(this).text());
     window.location.href='results.html'
     //$("#search-input").val($(this).text());//set the val of search area
   });
