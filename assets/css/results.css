@@ -3,7 +3,7 @@ h3.results-card {
 }
 
 div.card {
-    width: 70%;
+    /* width: 85%; */
     margin: auto;
     background-color: #6f79a8;
     opacity: 85%;
@@ -24,6 +24,10 @@ div.drink-section {
 
 h1, h2, h3 {
     font-family: 'Lobster', cursive;
+}
+
+h1 {
+    font-size: 40px;
 }
 
 p, li, a {
