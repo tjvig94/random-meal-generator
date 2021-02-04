@@ -35,8 +35,9 @@ div.instBox {
     background-color: #b1a296;
     margin: auto;
 }
-
-
+h3.instructions {
+    text-decoration: underline;
+}
 p.instP {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
@@ -48,7 +49,6 @@ p.instP {
 .select-dropdown {
     height: 500px;
 }
-
 
 label.chooseACountry {
     padding: 10px;
@@ -93,6 +93,7 @@ div.card-content {
 span.card-title {
     font-size: 45px !important;
     font-family: 'lobster', cursive;
+    text-decoration: underline;
 }
 
 li.search-input {
@@ -134,6 +135,18 @@ select {
       line-height: 1;
       border-radius:3px;
     }
+  }
+
+  @media only screen and (max-width: 400px) {
+      .input-field {
+        width: 100;
+      }
+      h1.indexHeader {
+          font-size: 50px;
+      }
+      .instBox, .favCard {
+          width: 75%;
+      }
   }
 
   @keyframes fadeInAnimation {
