@@ -1,25 +1,21 @@
 $(document).ready(function () {//dont forget this cause it will ruin your day
 
-  
+  var strMealName="";
   var index = 0 ;
   //global to check if favorites was clicked clear it
   window.localStorage.setItem("Fav", "");
 
   function getFood() {
-    // get the search text do some logic on this once it works and you have time
-    //var sIn = $("#country").val();
-   // console.log(window.localStorage.getItem("Country"));
 
    //some logic to tell if you selected a new country or a favorite
    var countryOrFav = window.localStorage.getItem("FavSelected");
    if (countryOrFav == "favSelect"){
-    var lsMealNames = localStorage.getItem("FavMeal");
+    var lsMealNames = localStorage.getItem("FavMeal");//load the fav 
         
     var queryURL = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + lsMealNames;
    }
    else {
-    var sIn = window.localStorage.getItem("Country");
-    //console.log(sIn);
+    var sIn = window.localStorage.getItem("Country");//get the country dish info 
     //put the api link here
     var queryURL = "https://www.themealdb.com/api/json/v1/1/filter.php?a=" + sIn //https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata"//"https://www.thecocktaildb.com/api/json/v1/1/random.php"; //"https://www.themealdb.com/api/json/v1/1/categories.php"; //"https://www.themealdb.com/api/json/v1/1/filter.php?a=British";
    }
@@ -32,40 +28,21 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
     })
 
     .then(function (response) {
-      // log it to see whats in it
       //find a random number in the object so it isnt always 0
       let min = 0;
       let max = response.meals.length;
       index = Math.floor(Math.random() * (max - min)+min);
-      console.log(index);
-      $(".meal-name").text(response.meals[index].strMeal);
       
-      
-      //window.localStorage.setItem("Meal" ,response.meals[index].strMeal);
-           
+      //load teh pic and save it to local storage           
       $(".meal-img").attr("src", response.meals[index].strMealThumb);
       window.localStorage.setItem("Pic" ,response.meals[index].strMealThumb);
       window.localStorage.setItem("IndexFav", index);
 
-      //make this an array of meal names 
-      let x = response.meals[index].strMeal;
-      console.log("x = json meal name");
-      console.log(x);
+      //set the meal name in teh display and in local storage
+      $(".meal-name").text(response.meals[index].strMeal);
+      window.localStorage.setItem("MeanNameONLY" , response.meals[index].strMeal);
+      strMealName = response.meals[index].strMeal;//incase they want to save it as a fav
       
-      //if it is the first time this is run we need to not read in localstorage
-      //if there are no meals then set local storage
-      //var listMealArray = JSON.parse(localStorage.getItem("Meal"));
-     
-      let listMealArray = JSON.parse(localStorage.getItem("Meal"));
-      if (listMealArray==null){listMealArray=[]}
-      console.log(listMealArray);
-      listMealArray.push(x);//push this in 
-      console.log("after push)");
-      console.log(listMealArray);
-      window.localStorage.setItem("Meal" ,JSON.stringify(listMealArray));
-
-
-
       getIngredients();
       index ++;
     });
@@ -74,8 +51,6 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
   function getIngredients() {
     // get the search text do some logic on this once it works and you have time
     var x = $(".meal-name").text();
-    console.log("getIngredients meal-name");
-    console.log(x);
     //put the api link here
     var queryURL1 = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + x //https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata"//"https://www.thecocktaildb.com/api/json/v1/1/random.php"; //"https://www.themealdb.com/api/json/v1/1/categories.php"; //"https://www.themealdb.com/api/json/v1/1/filter.php?a=British";
     //get the url info
@@ -119,18 +94,23 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
             })
       }
 
-  $(".food-btn").on("click", function(event){
-    window.localStorage.setItem("FavSelected", "");
+  $(".food-btn").on("click", function(event){//give us a new food item from this country 
+    window.localStorage.setItem("FavSelected", "");//make sure you know that this isnt the fav if you are here because user selected a fav
     getFood();
   });
-  $(".drink-btn").on("click", function(event){
+
+  $(".drink-btn").on("click", function(event){//get a random drink
     drink();
   });
 
-  $(".btn").on("click", function(event){
+  $(".btn").on("click", function(event){//save this meal to the main page and in local storage 
     //set the Fav global so we can check it on index.html
-    window.localStorage.setItem("Fav", "Fav");
-    //window.location.href='index.html'
+    window.localStorage.setItem("Fav", "Fav");//lets set a global letting us know we clicked on Favorite may not need this think its a waste
+    //need to store the meal name in the array ONLY here
+    let listMealArray = JSON.parse(localStorage.getItem("Meal"));//read in the existing array of meal names 
+    if (listMealArray==null){listMealArray=[]}//if we are at the first time we save a fav just initialize the array
+    listMealArray.push(strMealName);//push the meal name into the last index
+    window.localStorage.setItem("Meal" ,JSON.stringify(listMealArray));//set the local storage array Meal to this favorite 
   });
 
   getFood();

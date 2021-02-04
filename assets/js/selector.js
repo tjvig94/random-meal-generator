@@ -1,24 +1,9 @@
 $(document).ready(function () {
 
-
-//read the favorites from local storage if there are any
-//load the results into the list
-//
-
-//newst item goes last
-//when you click on the button get meal name
-//setitem meal in local storage
-//read the local storage and make it a json obj or array
-
-  function init(){
-    var listOfFavs = getFavs();
-    console.log("list of favs");
-    console.log(listOfFavs);
-    //if the favorites button was pressed save the data to the rows?
-   // if (window.localStorage.getItem("Fav") == "Fav"){
+  function init(){//this gets called first
+    var listOfFavs = getFavs();//initialize the array with localstorage meal names if there are any
       //Stick the local storage info in the ul = list-group li = search-input
       //Ingred, Fav, IndexFav, Pic, Meal, Country
-      
       for (var i = 0 ; i< listOfFavs.length; i++){
         var tagit = $("<li>");//create a li item
         tagit.attr("class", "new-item");
@@ -26,28 +11,18 @@ $(document).ready(function () {
         tagit.text(listOfFavs[i]);//(window.localStorage.getItem("Meal"));
         $(".list-group").append(tagit);  
       }
-      //loop through the local storage array if it exists
   }
-
 
 //in global scope make meal a variable 
 
-  
   function getFavs(){
-    //append or prepend the favorite to the list
-    //JSON.parse(localStorage.getItem("todos"));
-    let favs = JSON.parse(localStorage.getItem("Meal"));//maybe make Meals MealNames as its a list of meals 
-    if (favs == null){//falsey vals are empty strings 0 null undefined and false 
-      console.log("favs array from localstorage");
-      console.log(favs); 
+    
+    let favs = JSON.parse(localStorage.getItem("Meal"));//load favs array with local storage array 
+    if (favs == null){//if there is no local storage just init the array
       favs=[]; 
     }
     
-    return favs; // window.localStorage.getItem("Meal");//return an empty array
-  }
-
-  function makeNewJSON(){
-    //stringify data into new json obj in local storage
+    return favs; //return the array to init()
   }
 
   $(".list-group").on("click", "li", function(event){
@@ -55,18 +30,18 @@ $(document).ready(function () {
     
     //window.localStorage.setItem("Country", $(".select-dropdown.dropdown-trigger").val());
     window.localStorage.setItem("FavSelected", "favSelect");//key to know if they click on the search button or the favorite 
-    window.localStorage.setItem("FavMeal", $(this).text());
-    window.location.href='results.html'
+    window.localStorage.setItem("FavMeal", $(this).text());//set the local storage to whatever list itme they clicked on 
+    window.location.href='results.html'//open the results page
     //$("#search-input").val($(this).text());//set the val of search area
   });
 
-  $("#search-button").on("click", function (Event) {
+  $("#search-button").on("click", function (Event) {//if they click on the search button
 
-    window.localStorage.setItem("Country", $(".select-dropdown.dropdown-trigger").val());
-    window.localStorage.setItem("FavSelected", "");
+    window.localStorage.setItem("Country", $(".select-dropdown.dropdown-trigger").val());//if they select a country load the localstorage global with the country
+    window.localStorage.setItem("FavSelected", "");//make sure you clear the local storage global if they chose a fav before
   });
 
-  $('select').formSelect();
+  $('select').formSelect();//need thsi for chads gui stuff
 
   init();
 
