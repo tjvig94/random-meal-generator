@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,14 +11,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
   <link rel="shortcut icon" href="assets/favicon-16x16.png" type="image/x-icon">
-  <title>Document</title>
+  <title>Surprise Me-al</title>
 </head>
+
 <body class="body">
-  <h1 class="indexHeader col s12">Surprise Me-al</h1>
-        <div class="row firstRow center-align">
+  <div id="bg">
+    <div class="shape">
+      <h1 class="indexHeader col s12 m8 l12 xl12">Surprise Me-al</h1>
+    </div>
+    <div class="container">
+    <div class="row instBox s12 center-align" id="chevron">
+      <h3 class="instructions">Instructions</h3>
+      <p class="instP">
+        instructions go here
+      </p>
+    </div>
+  </div>
+        <div class="row firstRow s12 xl8 center-align">
           <div class="input-field col s9">
-            <select id="country"  name="country">
-               <option value="" disabled selected>Choose your option</option>
+            <select id="country" class="flow-text" name="country">
+               <option value="" disabled selected>Countries!</option>
                <option value="American" data-icon="./assets/flags/unitedstates.jfif">American</option>
                <option value="British" data-icon="./assets/flags/british.png">British</option>
                <option value="Canadian" data-icon="./assets/flags/canadian.jpg">Canadian</option>
@@ -49,10 +62,9 @@
           </div>
           <a class="waves-effect btn col s4" id="search-button"  onclick="window.location.href='results.html';"><i class="fas fa-search"></i></a>
       </div>
-      <div class="row h3R">
-  <div class="container">
+  <div class="container center">
    <div class="row favCard">
-    <div class="sizeOfCard col s12  center-align">
+    <div class="sizeOfCard col s12 m12 center-align">
       <div class="card">
         <div class="card-content">
           <span class="card-title">Favorites</span>
@@ -61,11 +73,13 @@
           </ul>
         </div>
       </div>
+      <a class="waves-effect btn col s4" id="search-button" onclick="window.location.href='results.html';"><i
+          class="fas fa-search"></i></a>
     </div>
-    </div>
-  </div>
+   
 
-  <script src="assets/js/selector.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script src="assets/js/selector.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
+
 </html>

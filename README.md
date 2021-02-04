@@ -16,10 +16,6 @@ The user is also given a random cocktail to go along with the meal.
 https://www.thecocktaildb.com/api.php
 https://www.themealdb.com/api.php
 
-## Trello
+## Live Application
+[Surprise Me-al](https://tomfallon9.github.io/random-meal-generator/)
 
-https://trello.com/b/7SIDpjsD/project-1
-
-## Wireframe
-
-https://balsamiq.cloud/s522bel/pa3ocwe
