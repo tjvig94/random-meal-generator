@@ -32,9 +32,6 @@
     }
 }
 
-.indexHeader {
-    font-size: 108px;
-
 h1.indexHeader {
     font-size: 86px;
     text-align: center;
@@ -52,7 +49,7 @@ div.instBox {
 
 .input-field {
     margin-left: 10px;
-
+}
 p.instP {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
@@ -90,8 +87,6 @@ h3 {
     text-align: center;
     margin: 5px 5px 5px 5px;
 }
-
-#search-button {
 
 a#search-button {
 
