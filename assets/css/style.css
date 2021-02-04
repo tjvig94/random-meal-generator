@@ -22,19 +22,6 @@
     animation-fill-mode: forwards;
 }
 
-
-@keyframes fadeInAnimation {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.indexHeader {
-    font-size: 108px;
-
 h1.indexHeader {
     font-size: 86px;
     text-align: center;
@@ -50,9 +37,6 @@ div.instBox {
 }
 
 
-.input-field {
-    margin-left: 10px;
-
 p.instP {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
@@ -65,10 +49,6 @@ p.instP {
     height: 500px;
 }
 
-
-.firstRow {
-    width: 20%;
-  }
 
 label.chooseACountry {
     padding: 10px;
@@ -91,10 +71,7 @@ h3 {
     margin: 5px 5px 5px 5px;
 }
 
-#search-button {
-
 a#search-button {
-
     margin-top: 15px;
     background-color: #b1a296;
     justify-content: center;
@@ -158,3 +135,12 @@ select {
       border-radius:3px;
     }
   }
+
+  @keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
