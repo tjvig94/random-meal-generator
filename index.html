@@ -13,11 +13,21 @@
 </head>
 <body class="body">
   <div id="bg">
-  <h1 class="indexHeader col s12">Surprise Me-al</h1>
-        <div class="row firstRow center-align">
+    <div class="shape">
+      <h1 class="indexHeader col s12 m8 l12 xl12">Surprise Me-al</h1>
+    </div>
+    <div class="container">
+    <div class="row instBox s12 center-align" id="chevron">
+      <h3 class="instructions">Instructions</h3>
+      <p class="instP">
+        instructions go here
+      </p>
+    </div>
+  </div>
+        <div class="row firstRow s12 xl8 center-align">
           <div class="input-field col s9">
-            <select id="country"  name="country">
-               <option value="" disabled selected>Choose your option</option>
+            <select id="country" class="flow-text" name="country">
+               <option value="" disabled selected>Countries!</option>
                <option value="American" data-icon="./assets/flags/unitedstates.jfif">American</option>
                <option value="British" data-icon="./assets/flags/british.png">British</option>
                <option value="Canadian" data-icon="./assets/flags/canadian.jpg">Canadian</option>
@@ -49,10 +59,9 @@
           </div>
           <a class="waves-effect btn col s4" id="search-button"  onclick="window.location.href='results.html';"><i class="fas fa-search"></i></a>
       </div>
-      <div class="row h3R">
-  <div class="container">
+  <div class="container center">
    <div class="row favCard">
-    <div class="sizeOfCard col s12  center-align">
+    <div class="sizeOfCard col s12 m12 center-align">
       <div class="card">
         <div class="card-content">
           <span class="card-title">Favorites</span>
