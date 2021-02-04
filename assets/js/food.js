@@ -38,6 +38,7 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
       // $("#showMe").attr("src", response.meals[0].strMealThumb);
       // $("#ingreed").text(response.meals[0])
       getIngredients();
+
       index ++;
     });
 
@@ -57,7 +58,18 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
       .then(function (response) {
         // log it to see whats in it
         console.log(response);
-        $(".ingredients").text(response.meals[0].strInstructions);
+        $(".directions").text(response.meals[0].strInstructions);
+        let meal = response.meals[0];
+        $(".meal-ingredients").empty();
+        for (let i = 1; i <= 15; i++) {
+          if (meal[`strIngredient${i}`] === null) {
+              break
+          }
+          let ingredient = $("<li class='meal-ingredient'>");
+          (meal[`strMeasure${i}`] === null) ? meal[`strMeasure${i}`] = "" : "";
+          ingredient.text(meal[`strIngredient${i}`] + ' ' + meal[`strMeasure${i}`]);
+          $(".meal-ingredients").append(ingredient); 
+        }
       });
   }
 
@@ -82,6 +94,7 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
                 }
                 $('.drink-img').attr("src", drink_photo_url);
                 $('.drink-name').text(drink_name);
+                $(".drink-directions").text(drink.strInstructions);
                 //document.querySelector('.drink-directions').innerText = drink_recipe
             })
       }
