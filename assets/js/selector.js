@@ -9,15 +9,16 @@ $(document).ready(function () {
 //when you click on the button get meal name
 //setitem meal in local storage
 //read the local storage and make it a json obj or array
-  var arrMealNamesList = [];
 
   function init(){
     var listOfFavs = getFavs();
+    console.log("list of favs");
     console.log(listOfFavs);
     //if the favorites button was pressed save the data to the rows?
    // if (window.localStorage.getItem("Fav") == "Fav"){
       //Stick the local storage info in the ul = list-group li = search-input
       //Ingred, Fav, IndexFav, Pic, Meal, Country
+      
       for (var i = 0 ; i< listOfFavs.length; i++){
         var tagit = $("<li>");//create a li item
         tagit.attr("class", "new-item");
@@ -36,9 +37,12 @@ $(document).ready(function () {
     //append or prepend the favorite to the list
     //JSON.parse(localStorage.getItem("todos"));
     let favs = JSON.parse(localStorage.getItem("Meal"));//maybe make Meals MealNames as its a list of meals 
-    if (favs){//falsey vals are empty strings 0 null undefined and false 
-      console.log(favs);
+    if (favs == null){//falsey vals are empty strings 0 null undefined and false 
+      console.log("favs array from localstorage");
+      console.log(favs); 
+      favs=[]; 
     }
+    
     return favs; // window.localStorage.getItem("Meal");//return an empty array
   }
 

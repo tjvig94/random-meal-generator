@@ -1,5 +1,6 @@
 $(document).ready(function () {//dont forget this cause it will ruin your day
 
+  
   var index = 0 ;
   //global to check if favorites was clicked clear it
   window.localStorage.setItem("Fav", "");
@@ -38,17 +39,33 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
       index = Math.floor(Math.random() * (max - min)+min);
       console.log(index);
       $(".meal-name").text(response.meals[index].strMeal);
-      //window.localStorage.setItem("Meal" ,response.meals[index].strMeal);
-      //make this an array of meal names 
-      let x = response.meals[index].strMeal;
-      var listMealArray = JSON.parse(localStorage.getItem("Meal"));
-      listMealArray.push(x);//push this in 
-  
-      window.localStorage.setItem("Meal" ,JSON.stringify(listMealArray));
       
+      
+      //window.localStorage.setItem("Meal" ,response.meals[index].strMeal);
+           
       $(".meal-img").attr("src", response.meals[index].strMealThumb);
       window.localStorage.setItem("Pic" ,response.meals[index].strMealThumb);
       window.localStorage.setItem("IndexFav", index);
+
+      //make this an array of meal names 
+      let x = response.meals[index].strMeal;
+      console.log("x = json meal name");
+      console.log(x);
+      
+      //if it is the first time this is run we need to not read in localstorage
+      //if there are no meals then set local storage
+      //var listMealArray = JSON.parse(localStorage.getItem("Meal"));
+     
+      let listMealArray = JSON.parse(localStorage.getItem("Meal"));
+      if (listMealArray==null){listMealArray=[]}
+      console.log(listMealArray);
+      listMealArray.push(x);//push this in 
+      console.log("after push)");
+      console.log(listMealArray);
+      window.localStorage.setItem("Meal" ,JSON.stringify(listMealArray));
+
+
+
       getIngredients();
       index ++;
     });
@@ -57,6 +74,8 @@ $(document).ready(function () {//dont forget this cause it will ruin your day
   function getIngredients() {
     // get the search text do some logic on this once it works and you have time
     var x = $(".meal-name").text();
+    console.log("getIngredients meal-name");
+    console.log(x);
     //put the api link here
     var queryURL1 = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + x //https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata"//"https://www.thecocktaildb.com/api/json/v1/1/random.php"; //"https://www.themealdb.com/api/json/v1/1/categories.php"; //"https://www.themealdb.com/api/json/v1/1/filter.php?a=British";
     //get the url info
