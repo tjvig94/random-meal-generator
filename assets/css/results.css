@@ -40,6 +40,10 @@ p, li, a {
     color: black;
 }
 
+.btn:hover, .btn-large:hover {
+    background-color: #d1d9ff;
+}
+
 a.go-back {
     text-decoration: none;
     background-color: none;
