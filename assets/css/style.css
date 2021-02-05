@@ -99,7 +99,10 @@ span.card-title {
 li.search-input {
     font-family: 'Montserrat', sans-serif;
 }
-
+li.search-input:hover {
+    color:blue;
+    cursor: pointer;
+}
 select {
     background: transparent;
     -webkit-appearance: none;
