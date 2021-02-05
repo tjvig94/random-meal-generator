@@ -45,6 +45,10 @@ $(document).ready(function () {
     else{window.location.href='results.html'}
   });
 
+  $(".clear").on("click", function (Event) {
+    window.localStorage.clear();
+    $(".list-group").remove();
+  })
   $('select').formSelect();//need thsi for chads gui stuff
 
   init();
