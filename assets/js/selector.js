@@ -39,6 +39,10 @@ $(document).ready(function () {
 
     window.localStorage.setItem("Country", $(".select-dropdown.dropdown-trigger").val());//if they select a country load the localstorage global with the country
     window.localStorage.setItem("FavSelected", "");//make sure you clear the local storage global if they chose a fav before
+    if ($(".select-dropdown.dropdown-trigger").val() === "Countries!"){
+
+    }
+    else{window.location.href='results.html'}
   });
 
   $('select').formSelect();//need thsi for chads gui stuff
