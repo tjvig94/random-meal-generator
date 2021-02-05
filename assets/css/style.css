@@ -114,12 +114,12 @@ select {
     right: 0; top: 0;
 }
 
-a.btn {
+a.clear {
     color: #B1A296;
     background-color: #5D5C61;
 }
 
-a.btn:hover {
+a.clear:hover {
     background-color: #d1d9ff;
 }
 
