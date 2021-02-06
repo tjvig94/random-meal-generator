@@ -27,11 +27,11 @@ As a foodie, I want a meal recommendation from a particular region so that I can
 
 ## Usage
 When arriving to main page select a country from which you would like to recieve a recipe from. Next, click on the search button.
-<p><img src="assets/projectGif1.gif"width="600"/></p>
+<p><img src="assets/css/projectGif1.gif"width="600"/></p>
 
 You will then be directed to the results page where you will find your recipe as well as a random drink to accompany your meal. You have the option of saving the meal as well.
 
-<p><img src="assets/projectGif2.gif"width="600"/></p>
+<p><img src="assets/css/projectGif2.gif"width="600"/></p>
 
 ## Wireframe
 
